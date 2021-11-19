@@ -9,6 +9,9 @@ var nomDuJoueur2 = "Tata";
 var ageDuJoueur2 = 25;
 var estUnHommeJoueur2 = false;
 
+const SEPARATEUR = "-";
+
+
 /**
  * Main
  */
@@ -19,19 +22,19 @@ comparerAgeDesDeuxJoueurs();
  * Fonctions
  */
 function afficherLesJoueurs() {
-    afficherLigneSeparation();
+    afficherLigneSeparation(SEPARATEUR);
 
     console.log("Nom du joueur 1 : " + nomDuJoueur1);
     console.log("Age du joueur 1 : " + ageDuJoueur1);
     afficherLeGenre(estUnHommeJoueur1);
 
-    afficherLigneSeparation();
+    afficherLigneSeparation(SEPARATEUR);
 
     console.log("%s est le nom du joueur 2", nomDuJoueur2);
     console.log("%d est l'age du joueur 2", ageDuJoueur2);
     afficherLeGenre(estUnHommeJoueur2);
 
-    afficherLigneSeparation();
+    afficherLigneSeparation(SEPARATEUR);
 }
 
 function comparerAgeDesDeuxJoueurs() {
@@ -52,11 +55,11 @@ function afficherLeGenre(bool) {
     }
 }
 
-function afficherLigneSeparation() {
+function afficherLigneSeparation(separateur) {
     var ligneSeparationText = ""
     for(var i = 0; i < 100; i++) {
         //ligneSeparationText = ligneSeparationText + "-";
-        ligneSeparationText += "-";
+        ligneSeparationText += separateur;
     }
     console.log(ligneSeparationText);
 }

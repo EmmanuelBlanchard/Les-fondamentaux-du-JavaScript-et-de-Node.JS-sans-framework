@@ -2,11 +2,11 @@
  * Variables
  */
 var nomDuJoueur1 = "Toto";
-var ageDuJoueur1 = 25;
+var ageDuJoueur1 = 28;
 var estUnHommeJoueur1 = true;
 
 var nomDuJoueur2 = "Tata";
-var ageDuJoueur2 = 25;
+var ageDuJoueur2 = 23;
 var estUnHommeJoueur2 = false;
 
 const SEPARATEUR = "-";
@@ -16,7 +16,10 @@ const SEPARATEUR = "-";
  * Main
  */
 afficherLesJoueurs();
-comparerAgeDesDeuxJoueurs();
+afficherComparaisonAgeDesDeuxJoueurs();
+afficherLigneSeparation(SEPARATEUR);
+afficherDifferenceAgeJoueurs();
+afficherLigneSeparation(SEPARATEUR);
 
 /**
  * Fonctions
@@ -37,7 +40,7 @@ function afficherLesJoueurs() {
     afficherLigneSeparation(SEPARATEUR);
 }
 
-function comparerAgeDesDeuxJoueurs() {
+function afficherComparaisonAgeDesDeuxJoueurs() {
     if(ageDuJoueur1 > ageDuJoueur2) { // Le joueur 1 est strictement plus age
         console.log("Le joueur 1 est le plus age")
     } else if (ageDuJoueur2 > ageDuJoueur1) { // Le joueur 2 est strictement plus age
@@ -62,4 +65,17 @@ function afficherLigneSeparation(separateur) {
         ligneSeparationText += separateur;
     }
     console.log(ligneSeparationText);
+}
+
+function calculDifferenceAgeJoueurs() {
+    var differenceAge = ageDuJoueur1 - ageDuJoueur2;
+    if(differenceAge < 0) {
+        differenceAge = -differenceAge;
+    }
+    return differenceAge;
+}
+
+function afficherDifferenceAgeJoueurs() {
+    var differenceAgeJoueurs = calculDifferenceAgeJoueurs();
+    console.log("La différence d'age entre les deux joueurs est de : " + differenceAgeJoueurs + " ans");
 }

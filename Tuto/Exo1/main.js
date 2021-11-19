@@ -23,21 +23,13 @@ function afficherLesJoueurs() {
 
     console.log("Nom du joueur 1 : " + nomDuJoueur1);
     console.log("Age du joueur 1 : " + ageDuJoueur1);
-    if(estUnHommeJoueur1 === true) {
-        console.log("Le joueur 1 est un homme");
-    } else { // estUnHomme === false
-        console.log("Le joueur 1 est une femme");
-    }
+    afficherleGenre(estUnHommeJoueur1);
 
     console.log("---------------------------------------");
 
     console.log("%s est le nom du joueur 2", nomDuJoueur2);
     console.log("%d est l'age du joueur 2", ageDuJoueur2);
-    if(estUnHommeJoueur2 === true) {
-        console.log("Le joueur 2 est un homme");
-    } else { // estUnHomme === false
-        console.log("Le joueur 2 est une femme");
-    }
+    afficherleGenre(estUnHommeJoueur2);
 
     console.log("---------------------------------------");
 }
@@ -49,5 +41,13 @@ function comparerAgeDesDeuxJoueurs() {
         console.log("Le joueur 2 est le plus age")
     } else { // valeur égale pour joueur 1 et joueur 2
         console.log("Les joueurs ont le même age")
+    }
+}
+
+function afficherleGenre(bool) {
+    if(bool) {
+        console.log("Le joueur est un homme");
+    } else { // estUnHomme === false
+        console.log("Le joueur est une femme");
     }
 }

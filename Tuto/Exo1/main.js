@@ -15,29 +15,52 @@ const SEPARATEUR = "-";
 /**
  * Main
  */
-afficherLesJoueurs();
-afficherComparaisonAgeDesDeuxJoueurs();
-afficherLigneSeparation(SEPARATEUR);
-afficherDifferenceAgeJoueurs();
-afficherLigneSeparation(SEPARATEUR);
+afficherMenu();
+var choixMenu = 1;
+switch(choixMenu) {
+    case 1: afficherLigneSeparation(SEPARATEUR);
+            afficherJoueur1();
+            afficherLigneSeparation(SEPARATEUR);
+            afficherJoueur2();
+            afficherLigneSeparation(SEPARATEUR);
+    break;
+    case 2: afficherLigneSeparation(SEPARATEUR);
+            afficherComparaisonAgeDesDeuxJoueurs();
+            afficherLigneSeparation(SEPARATEUR);
+    break;
+    case 3: afficherLigneSeparation(SEPARATEUR);
+            afficherDifferenceAgeJoueurs();
+            afficherLigneSeparation(SEPARATEUR);
+    break;
+    case 9: console.log("A bientôt");
+    break;
+    default: console.log("Cas non traité");
+    break;
+
+}
+
 
 /**
  * Fonctions
  */
-function afficherLesJoueurs() {
-    afficherLigneSeparation(SEPARATEUR);
-
+function afficherMenu() {
+    var texteMenu = "";
+    texteMenu += "1 - Afficher les joueurs\n";
+    texteMenu += "2 - Comparer les deux joueurs\n";
+    texteMenu += "3 - Calculer la différence d'age\n";
+    texteMenu += "9 - Quitter\n";
+    console.log(texteMenu);
+}
+function afficherJoueur1() {
     console.log("Nom du joueur 1 : " + nomDuJoueur1);
     console.log("Age du joueur 1 : " + ageDuJoueur1);
     afficherLeGenre(estUnHommeJoueur1);
+}
 
-    afficherLigneSeparation(SEPARATEUR);
-
+function afficherJoueur2() {
     console.log("%s est le nom du joueur 2", nomDuJoueur2);
     console.log("%d est l'age du joueur 2", ageDuJoueur2);
     afficherLeGenre(estUnHommeJoueur2);
-
-    afficherLigneSeparation(SEPARATEUR);
 }
 
 function afficherComparaisonAgeDesDeuxJoueurs() {

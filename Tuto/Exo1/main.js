@@ -19,19 +19,19 @@ comparerAgeDesDeuxJoueurs();
  * Fonctions
  */
 function afficherLesJoueurs() {
-    console.log("---------------------------------------");
+    afficherLigneSeparation();
 
     console.log("Nom du joueur 1 : " + nomDuJoueur1);
     console.log("Age du joueur 1 : " + ageDuJoueur1);
-    afficherleGenre(estUnHommeJoueur1);
+    afficherLeGenre(estUnHommeJoueur1);
 
-    console.log("---------------------------------------");
+    afficherLigneSeparation();
 
     console.log("%s est le nom du joueur 2", nomDuJoueur2);
     console.log("%d est l'age du joueur 2", ageDuJoueur2);
-    afficherleGenre(estUnHommeJoueur2);
+    afficherLeGenre(estUnHommeJoueur2);
 
-    console.log("---------------------------------------");
+    afficherLigneSeparation();
 }
 
 function comparerAgeDesDeuxJoueurs() {
@@ -44,10 +44,19 @@ function comparerAgeDesDeuxJoueurs() {
     }
 }
 
-function afficherleGenre(bool) {
+function afficherLeGenre(bool) {
     if(bool) {
         console.log("Le joueur est un homme");
     } else { // estUnHomme === false
         console.log("Le joueur est une femme");
     }
+}
+
+function afficherLigneSeparation() {
+    var ligneSeparationText = ""
+    for(var i = 0; i < 100; i++) {
+        //ligneSeparationText = ligneSeparationText + "-";
+        ligneSeparationText += "-";
+    }
+    console.log(ligneSeparationText);
 }

@@ -1,37 +1,37 @@
 var joueur = {
     nom : "Wawa",
     description : "Le meilleur des guerrier",
+    level : 1,
     caractéristiques : {
-        force : {
-            description : {
-                info : "test",
-                valeur : "test2"
-            },
-            valeur : 25
-        },
+        force : 5,
         agilite : 3,
         intelligence : 2,
+    },
+    afficherMonJoueur : function() {
+        console.log("Nom : " + this.nom);
+        console.log("Description : " + this.description);
+        console.log("Niveau : " + this.level);
+        console.log("Force : " + this.caractéristiques.force);
+        console.log("Agilite : " + this.caractéristiques.agilite);
+        console.log("Intelligence : " + this.caractéristiques.intelligence);
+    },
+    levelUp : function () {
+        this.level ++;
     }
 }
 
-// console.log(joueur.nom);
-// console.log(joueur.description);
-// console.log(joueur.caractéristiques.force);
-// console.log(joueur.caractéristiques.agilite);
-// console.log(joueur.caractéristiques.intelligence);
+joueur.afficherMonJoueur();
+joueur.levelUp();
+joueur.afficherMonJoueur();
 
-afficherInformationsJoueur(joueur);
+// afficherInformationsJoueur(joueur);
 
-function afficherInformationsJoueur(j) {
-    for(var propriete in j) {
-        if(typeof(j[propriete]) !== "object") {
-            console.log(propriete + " : " + j[propriete]);
-        } else {
-            afficherInformationsJoueur(j[propriete]);
-            // for(var subPropriete in j[propriete]) {
-            //     console.log(subPropriete + " : " + j[propriete][subPropriete]);
-            // }
-        }
-        
-    }
-}
+// function afficherInformationsJoueur(j) {
+//     for(var propriete in j) {
+//         if(typeof(j[propriete]) !== "object") {
+//             console.log(propriete + " : " + j[propriete]);
+//         } else {
+//             afficherInformationsJoueur(j[propriete]);
+//         }
+//     }
+// }

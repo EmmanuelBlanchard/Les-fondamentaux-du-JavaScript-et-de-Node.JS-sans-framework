@@ -3,13 +3,16 @@
  */
 var readline = require("readline-sync");
 
-var nomDuJoueur1 = "Toto";
-var ageDuJoueur1 = 28;
-var estUnHommeJoueur1 = true;
-
-var nomDuJoueur2 = "Tata";
-var ageDuJoueur2 = 23;
-var estUnHommeJoueur2 = false;
+var joueur1 = {
+    nom : "Toto",
+    age : 28,
+    estunHomme : true
+}
+var joueur2 = {
+    nom : "Tata",
+    age : 23,
+    estunHomme : false
+}
 
 const SEPARATEUR = "-";
 
@@ -66,22 +69,22 @@ function afficherComparaisonAgeDesDeuxJoueurs() {
 }
 
 function afficherJoueur1() {
-    console.log("Nom du joueur 1 : " + nomDuJoueur1);
-    console.log("Age du joueur 1 : " + ageDuJoueur1);
-    afficherLeGenre(estUnHommeJoueur1);
+    console.log("Nom du joueur 1 : " + joueur1.nom);
+    console.log("Age du joueur 1 : " + joueur1.age);
+    afficherLeGenre(joueur1.estunHomme);
 }
 
 function afficherJoueur2() {
-    console.log("%s est le nom du joueur 2", nomDuJoueur2);
-    console.log("%d est l'age du joueur 2", ageDuJoueur2);
-    afficherLeGenre(estUnHommeJoueur2);
+    console.log("%s est le nom du joueur 2", joueur2.nom);
+    console.log("%d est l'age du joueur 2", joueur2.age);
+    afficherLeGenre(joueur2.estunHomme);
 }
 
 function afficherComparaisonAgeDesDeuxJoueurs() {
     afficherLigneSeparation(SEPARATEUR);
-    if(ageDuJoueur1 > ageDuJoueur2) { // Le joueur 1 est strictement plus age
+    if(joueur1.age > joueur2.age) { // Le joueur 1 est strictement plus age
         console.log("Le joueur 1 est le plus age")
-    } else if (ageDuJoueur2 > ageDuJoueur1) { // Le joueur 2 est strictement plus age
+    } else if (joueur2.age > joueur1.age) { // Le joueur 2 est strictement plus age
         console.log("Le joueur 2 est le plus age")
     } else { // valeur égale pour joueur 1 et joueur 2
         console.log("Les joueurs ont le même age")
@@ -107,7 +110,7 @@ function afficherLigneSeparation(separateur) {
 }
 
 function calculDifferenceAgeJoueurs() {
-    var differenceAge = ageDuJoueur1 - ageDuJoueur2;
+    var differenceAge = joueur1.age - joueur2.age;
     if(differenceAge < 0) {
         differenceAge = -differenceAge;
     }

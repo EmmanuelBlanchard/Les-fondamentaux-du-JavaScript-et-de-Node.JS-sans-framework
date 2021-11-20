@@ -48,6 +48,8 @@ while (choixMenu !== 9) {
         break;
         case 3: afficherMoyenneDageDesJoueurs();
         break;
+        case 4: ajouterJoueur();
+        break;
         case 9: console.log("A bientôt");
         break;
         default: console.log("Cas non traité");
@@ -64,12 +66,21 @@ function afficherMenu() {
     texteMenu += "1 - Afficher les joueurs\n";
     texteMenu += "2 - Afficher le joueur le plus age\n";
     texteMenu += "3 - Calculer la moyenne d'age des joueurs\n";
+    texteMenu += "4 - Ajouter un joueur\n";
     texteMenu += "9 - Quitter\n";
     console.log(texteMenu);
 }
 
 function saisirEntierQuestion(question) {
     return parseInt(readline.question(question));
+}
+
+function saisirChaineQuestion(question) {
+    return readline.question(question);
+}
+
+function saisirBooleenQuestion(question) {
+    return parseBool(readline.question(question));
 }
 
 function afficherLesJoueursDuJeu() {    
@@ -81,6 +92,15 @@ function afficherLesJoueursDuJeu() {
         // deuxieme passage i = 1, tableauJoueurs[1] -> joueur2
         // troisieme passage i = 2, tableauJoueurs[2] -> joueur3
     }
+}
+
+function ajouterJoueur() {
+    var joueur = {
+        nom : saisirChaineQuestion("Quel est le nom du joueur ? "),
+        age : saisirEntierQuestion("Quel est l'age du joueur ? "),
+        estunHomme : true
+    }
+    tableauJoueurs.push(joueur);
 }
 
 function afficherLeJoueurLePlusAge() {

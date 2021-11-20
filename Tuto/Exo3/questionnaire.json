@@ -1,0 +1,29 @@
+{
+    "question1" : {
+        "difficulte" : "facile",
+        "desc" : "Combien de pates a un chat ? ",
+        "reponseA" : 2,
+        "reponseB" : 3,
+        "reponseC" : 4,
+        "reponseD" : 5,
+        "bonneReponse" : "reponseC"
+    },
+    "question2" : {
+        "difficulte" : "moyenne",
+        "desc" : "Combien de bebe a un chat en moyenne ? ",
+        "reponseA" : 2,
+        "reponseB" : 3,
+        "reponseC" : 4,
+        "reponseD" : 5,
+        "bonneReponse" : "reponseD"
+    },
+    "question3" : {
+        "difficulte" : "difficile",
+        "desc" : "Quel son caractérise un chat ? ",
+        "reponseA" : "ronron",
+        "reponseB" : "ponpon",
+        "reponseC" : "tonton",
+        "reponseD" : "lonlon",
+        "bonneReponse" : "reponseA"
+    }
+}

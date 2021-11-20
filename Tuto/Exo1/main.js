@@ -8,11 +8,20 @@ var joueur1 = {
     age : 22,
     estunHomme : true
 }
+
 var joueur2 = {
     nom : "Tata",
     age : 23,
     estunHomme : false
 }
+
+var joueur3 = {
+    nom : "Koko",
+    age : 30,
+    estunHomme : false
+}
+
+var tableauJoueurs = [joueur1,joueur2,joueur3];
 
 const SEPARATEUR = "-";
 
@@ -28,9 +37,9 @@ while (choixMenu !== 9) {
     switch(choixMenu) {
         case 1: afficherLesJoueursDuJeu();
         break;
-        case 2: afficherComparaisonAgeDesDeuxJoueurs(joueur1,joueur2);
+        case 2: afficherComparaisonAgeDesDeuxJoueurs(tableauJoueurs[0],tableauJoueurs[2]);
         break;
-        case 3: afficherDifferenceAgeJoueurs();
+        case 3: afficherDifferenceAgeJoueurs(tableauJoueurs[0],tableauJoueurs[2]);
         break;
         case 9: console.log("A bientôt");
         break;
@@ -56,12 +65,21 @@ function saisirEntierQuestion(question) {
     return parseInt(readline.question(question));
 }
 
-function afficherLesJoueursDuJeu() {
-    afficherLigneSeparation(SEPARATEUR);
-    afficherUnJoueur(joueur1);
-    afficherLigneSeparation(SEPARATEUR);
-    afficherUnJoueur(joueur2);
-    afficherLigneSeparation(SEPARATEUR);
+function afficherLesJoueursDuJeu() {    
+    for(var i = 0 ; i <= tableauJoueurs.length - 1 ; i++) {
+        afficherLigneSeparation(SEPARATEUR);
+        afficherUnJoueur(tableauJoueurs[i]);
+        afficherLigneSeparation(SEPARATEUR);
+        // premier passage i = 0, tableauJoueurs[0] -> joueur1
+        // deuxieme passage i = 1, tableauJoueurs[1] -> joueur2
+        // troisieme passage i = 2, tableauJoueurs[2] -> joueur3
+    }
+
+    // afficherLigneSeparation(SEPARATEUR);
+    // afficherUnJoueur(joueur1);
+    // afficherLigneSeparation(SEPARATEUR);
+    // afficherUnJoueur(joueur2);
+    // afficherLigneSeparation(SEPARATEUR);
 }
 
 function afficherUnJoueur(unJoueur) {
@@ -107,9 +125,9 @@ function calculDifferenceAgeJoueurs(premierJoueur,deuxiemeJoueur) {
     return differenceAge;
 }
 
-function afficherDifferenceAgeJoueurs() {
+function afficherDifferenceAgeJoueurs(premierJoueur,deuxiemeJoueur) {
     afficherLigneSeparation(SEPARATEUR);
-    var differenceAgeJoueurs = calculDifferenceAgeJoueurs(joueur1,joueur2);
+    var differenceAgeJoueurs = calculDifferenceAgeJoueurs(premierJoueur,deuxiemeJoueur);
     console.log("La différence d'age entre les deux joueurs est de : " + differenceAgeJoueurs + " ans");
     afficherLigneSeparation(SEPARATEUR);
 }

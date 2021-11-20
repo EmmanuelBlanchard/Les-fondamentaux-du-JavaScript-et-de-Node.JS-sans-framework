@@ -2,7 +2,13 @@ var joueur = {
     nom : "Wawa",
     description : "Le meilleur des guerrier",
     caractéristiques : {
-        force : 5,
+        force : {
+            description : {
+                info : "test",
+                valeur : "test2"
+            },
+            valeur : 25
+        },
         agilite : 3,
         intelligence : 2,
     }
@@ -21,9 +27,10 @@ function afficherInformationsJoueur(j) {
         if(typeof(j[propriete]) !== "object") {
             console.log(propriete + " : " + j[propriete]);
         } else {
-            for(var subPropriete in j[propriete]) {
-                console.log(subPropriete + " : " + j[propriete][subPropriete]);
-            }
+            afficherInformationsJoueur(j[propriete]);
+            // for(var subPropriete in j[propriete]) {
+            //     console.log(subPropriete + " : " + j[propriete][subPropriete]);
+            // }
         }
         
     }

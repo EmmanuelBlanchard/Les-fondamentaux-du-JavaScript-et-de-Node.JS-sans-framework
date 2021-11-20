@@ -6,7 +6,7 @@
         "reponseB" : 3,
         "reponseC" : 4,
         "reponseD" : 5,
-        "bonneReponse" : "reponseC"
+        "bonneReponse" : "C"
     },
     "question2" : {
         "difficulte" : "moyenne",
@@ -15,7 +15,7 @@
         "reponseB" : 3,
         "reponseC" : 4,
         "reponseD" : 5,
-        "bonneReponse" : "reponseD"
+        "bonneReponse" : "D"
     },
     "question3" : {
         "difficulte" : "difficile",
@@ -24,6 +24,6 @@
         "reponseB" : "ponpon",
         "reponseC" : "tonton",
         "reponseD" : "lonlon",
-        "bonneReponse" : "reponseA"
+        "bonneReponse" : "A"
     }
 }

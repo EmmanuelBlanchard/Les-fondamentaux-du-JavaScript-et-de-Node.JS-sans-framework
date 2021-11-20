@@ -1,11 +1,13 @@
+var readline = require("readline-sync");
+
 var questionnaire = {
     afficherUneQuestion : function(question) {
         var texte = "";
         texte += question.desc + "\n";
-        texte += question.reponseA + "\n";
-        texte += question.reponseB + "\n";
-        texte += question.reponseC + "\n";
-        texte += question.reponseD + "\n";
+        texte += "A : " + question.reponseA + "\n";
+        texte += "B : " + question.reponseB + "\n";
+        texte += "C : " + question.reponseC + "\n";
+        texte += "D : " + question.reponseD + "\n";
         console.log(texte);
     },
     retourneNombreQuestionsDuQuestionnaire : function(questionnaire) {
@@ -17,7 +19,17 @@ var questionnaire = {
     },
     genererQuestionAleatoire(questionnaire) {
         var numeroQuestionAleatoire = Math.floor(Math.random() * this.retourneNombreQuestionsDuQuestionnaire(questionnaire) +1);
-        this.afficherUneQuestion(questionnaire["question"+numeroQuestionAleatoire]);
+        return questionnaire["question"+numeroQuestionAleatoire];
+    },
+    saisirReponse() {
+        return readline.question("Quelle est votre reponse (A - B - C - D) ? ");
+    },
+    estBonneReponse(question, reponse) {
+        if(reponse === question.bonneReponse) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 module.exports = questionnaire;

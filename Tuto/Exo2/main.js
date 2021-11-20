@@ -1,21 +1,17 @@
 var joueur = require("./joueur");
 var templateEnnemi = require("./ennemi");
 
-joueur.afficherMonJoueur();
-joueur.levelUp();
-joueur.afficherMonJoueur();
-
 var tableauEnnemis = []
 var tortue1 = templateEnnemi.creerTortue();
-tableauEnnemis.push(tortue1);
 var tortue2 = templateEnnemi.creerTortue();
-tableauEnnemis.push(tortue2);
 var tortue3 = templateEnnemi.creerTortue();
-tableauEnnemis.push(tortue3);
-
 var crabe1 = templateEnnemi.creerCrabe();
 var crabe2 = templateEnnemi.creerCrabe();
-tableauEnnemis.push(crabe1, crabe2);
+tableauEnnemis.push(crabe1, crabe2, tortue1, tortue2, tortue3);
+
+var ennemiAleatoire = retournerEnnemiAleatoire();
+
+ennemiAleatoire.afficherEnnemi();
 
 function afficherEnnemis() {
     for(var i = 0 ; i < tableauEnnemis.length ; i++) {
@@ -23,7 +19,10 @@ function afficherEnnemis() {
     }
 }
 
-afficherEnnemis();
+function retournerEnnemiAleatoire() {
+    var numeroEnnemiAleatoire = Math.floor(Math.random() * tableauEnnemis.length);
+    return tableauEnnemis[numeroEnnemiAleatoire];
+}
 
 // afficherInformationsJoueur(joueur);
 

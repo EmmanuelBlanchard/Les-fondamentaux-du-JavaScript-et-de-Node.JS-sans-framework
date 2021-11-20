@@ -20,22 +20,14 @@ const SEPARATEUR = "-";
 var choixMenu = 0;
 while (choixMenu !== 9) {
     afficherMenu();
-    var choixMenu = parseInt(readline.question("Quel est votre choix ? "));
+    var choixMenu = saisirEntierQuestion("Quel est votre choix ? ");
 
     switch(choixMenu) {
-        case 1: afficherLigneSeparation(SEPARATEUR);
-                afficherJoueur1();
-                afficherLigneSeparation(SEPARATEUR);
-                afficherJoueur2();
-                afficherLigneSeparation(SEPARATEUR);
+        case 1: afficherLesJoueursDuJeu();
         break;
-        case 2: afficherLigneSeparation(SEPARATEUR);
-                afficherComparaisonAgeDesDeuxJoueurs();
-                afficherLigneSeparation(SEPARATEUR);
+        case 2: afficherComparaisonAgeDesDeuxJoueurs();
         break;
-        case 3: afficherLigneSeparation(SEPARATEUR);
-                afficherDifferenceAgeJoueurs();
-                afficherLigneSeparation(SEPARATEUR);
+        case 3: afficherDifferenceAgeJoueurs();
         break;
         case 9: console.log("A bientôt");
         break;
@@ -56,6 +48,23 @@ function afficherMenu() {
     texteMenu += "9 - Quitter\n";
     console.log(texteMenu);
 }
+
+function saisirEntierQuestion(question) {
+    return parseInt(readline.question(question));
+}
+
+function afficherLesJoueursDuJeu() {
+    afficherLigneSeparation(SEPARATEUR);
+    afficherJoueur1();
+    afficherLigneSeparation(SEPARATEUR);
+    afficherJoueur2();
+    afficherLigneSeparation(SEPARATEUR);
+}
+
+function afficherComparaisonAgeDesDeuxJoueurs() {
+
+}
+
 function afficherJoueur1() {
     console.log("Nom du joueur 1 : " + nomDuJoueur1);
     console.log("Age du joueur 1 : " + ageDuJoueur1);
@@ -69,6 +78,7 @@ function afficherJoueur2() {
 }
 
 function afficherComparaisonAgeDesDeuxJoueurs() {
+    afficherLigneSeparation(SEPARATEUR);
     if(ageDuJoueur1 > ageDuJoueur2) { // Le joueur 1 est strictement plus age
         console.log("Le joueur 1 est le plus age")
     } else if (ageDuJoueur2 > ageDuJoueur1) { // Le joueur 2 est strictement plus age
@@ -76,6 +86,7 @@ function afficherComparaisonAgeDesDeuxJoueurs() {
     } else { // valeur égale pour joueur 1 et joueur 2
         console.log("Les joueurs ont le même age")
     }
+    afficherLigneSeparation(SEPARATEUR);
 }
 
 function afficherLeGenre(bool) {
@@ -104,6 +115,8 @@ function calculDifferenceAgeJoueurs() {
 }
 
 function afficherDifferenceAgeJoueurs() {
+    afficherLigneSeparation(SEPARATEUR);
     var differenceAgeJoueurs = calculDifferenceAgeJoueurs();
     console.log("La différence d'age entre les deux joueurs est de : " + differenceAgeJoueurs + " ans");
+    afficherLigneSeparation(SEPARATEUR);
 }

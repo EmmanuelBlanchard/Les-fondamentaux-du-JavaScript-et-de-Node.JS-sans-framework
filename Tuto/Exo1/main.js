@@ -11,7 +11,7 @@ var joueur1 = {
 
 var joueur2 = {
     nom : "Tata",
-    age : 23,
+    age : 32,
     estunHomme : false
 }
 
@@ -21,7 +21,14 @@ var joueur3 = {
     estunHomme : false
 }
 
+var joueur4 = {
+    nom : "Papi",
+    age : 46,
+    estunHomme : true
+}
+
 var tableauJoueurs = [joueur1,joueur2,joueur3];
+tableauJoueurs.push(joueur4);
 
 const SEPARATEUR = "-";
 
@@ -37,7 +44,7 @@ while (choixMenu !== 9) {
     switch(choixMenu) {
         case 1: afficherLesJoueursDuJeu();
         break;
-        case 2: afficherComparaisonAgeDesDeuxJoueurs(tableauJoueurs[0],tableauJoueurs[2]);
+        case 2: afficherLeJoueurLePlusAge();
         break;
         case 3: afficherDifferenceAgeJoueurs(tableauJoueurs[0],tableauJoueurs[2]);
         break;
@@ -55,7 +62,7 @@ while (choixMenu !== 9) {
 function afficherMenu() {
     var texteMenu = "";
     texteMenu += "1 - Afficher les joueurs\n";
-    texteMenu += "2 - Comparer les deux joueurs\n";
+    texteMenu += "2 - Afficher le joueur le plus age\n";
     texteMenu += "3 - Calculer la différence d'age\n";
     texteMenu += "9 - Quitter\n";
     console.log(texteMenu);
@@ -74,12 +81,19 @@ function afficherLesJoueursDuJeu() {
         // deuxieme passage i = 1, tableauJoueurs[1] -> joueur2
         // troisieme passage i = 2, tableauJoueurs[2] -> joueur3
     }
+}
 
-    // afficherLigneSeparation(SEPARATEUR);
-    // afficherUnJoueur(joueur1);
-    // afficherLigneSeparation(SEPARATEUR);
-    // afficherUnJoueur(joueur2);
-    // afficherLigneSeparation(SEPARATEUR);
+function afficherLeJoueurLePlusAge() {
+    var JoueurLePlusAge = tableauJoueurs[0];
+
+    for(var i = 1 ; i < tableauJoueurs.length ; i++) {
+        if(JoueurLePlusAge.age < tableauJoueurs[i].age) {
+            JoueurLePlusAge = tableauJoueurs[i];
+        }
+    }
+    afficherLigneSeparation(SEPARATEUR);
+    console.log("Le joueur le plus age est : " + JoueurLePlusAge.nom);
+    afficherLigneSeparation(SEPARATEUR);
 }
 
 function afficherUnJoueur(unJoueur) {

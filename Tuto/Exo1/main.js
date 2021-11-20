@@ -1,6 +1,8 @@
 /**
  * Variables
  */
+var readline = require("readline-sync");
+
 var nomDuJoueur1 = "Toto";
 var ageDuJoueur1 = 28;
 var estUnHommeJoueur1 = true;
@@ -15,28 +17,31 @@ const SEPARATEUR = "-";
 /**
  * Main
  */
-afficherMenu();
-var choixMenu = 1;
-switch(choixMenu) {
-    case 1: afficherLigneSeparation(SEPARATEUR);
-            afficherJoueur1();
-            afficherLigneSeparation(SEPARATEUR);
-            afficherJoueur2();
-            afficherLigneSeparation(SEPARATEUR);
-    break;
-    case 2: afficherLigneSeparation(SEPARATEUR);
-            afficherComparaisonAgeDesDeuxJoueurs();
-            afficherLigneSeparation(SEPARATEUR);
-    break;
-    case 3: afficherLigneSeparation(SEPARATEUR);
-            afficherDifferenceAgeJoueurs();
-            afficherLigneSeparation(SEPARATEUR);
-    break;
-    case 9: console.log("A bientôt");
-    break;
-    default: console.log("Cas non traité");
-    break;
+var choixMenu = 0;
+while (choixMenu !== 9) {
+    afficherMenu();
+    var choixMenu = parseInt(readline.question("Quel est votre choix ? "));
 
+    switch(choixMenu) {
+        case 1: afficherLigneSeparation(SEPARATEUR);
+                afficherJoueur1();
+                afficherLigneSeparation(SEPARATEUR);
+                afficherJoueur2();
+                afficherLigneSeparation(SEPARATEUR);
+        break;
+        case 2: afficherLigneSeparation(SEPARATEUR);
+                afficherComparaisonAgeDesDeuxJoueurs();
+                afficherLigneSeparation(SEPARATEUR);
+        break;
+        case 3: afficherLigneSeparation(SEPARATEUR);
+                afficherDifferenceAgeJoueurs();
+                afficherLigneSeparation(SEPARATEUR);
+        break;
+        case 9: console.log("A bientôt");
+        break;
+        default: console.log("Cas non traité");
+        break;
+    }
 }
 
 

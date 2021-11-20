@@ -1,0 +1,20 @@
+{
+    "question1" : {
+        "difficulte" : "facile",
+        "desc" : "Combien de pates a un chien ? ",
+        "reponseA" : 2,
+        "reponseB" : 3,
+        "reponseC" : 4,
+        "reponseD" : 5,
+        "bonneReponse" : "C"
+    },
+    "question2" : {
+        "difficulte" : "moyenne",
+        "desc" : "Combien de bebe a un chien en moyenne ? ",
+        "reponseA" : 2,
+        "reponseB" : 3,
+        "reponseC" : 4,
+        "reponseD" : 5,
+        "bonneReponse" : "B"
+    }
+}

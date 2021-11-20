@@ -27,6 +27,8 @@ while (choixMenu !== 9 && !gameOver) {
         break;
         case 3: combattreEnnemi();
         break;
+        case 4: ajoutEnnemi();
+        break;
         case 9: console.log("A bientôt");
         break;
         default: console.log("Cas non traité");
@@ -39,8 +41,22 @@ function afficherMenu() {
     texteMenu += "1 - Afficher le joueur\n";
     texteMenu += "2 - Afficher la liste des ennemis\n";
     texteMenu += "3 - Combattre un ennemi\n";
+    texteMenu += "4 - Ajouter un ennemi\n";
     texteMenu += "9 - Quitter\n";
     console.log(texteMenu);
+}
+
+function ajoutEnnemi(){
+    var texte = "";
+    texte += "Quel ennemi voulez vous ajouter ? \n"
+    texte += "1 : Crabe \n";
+    texte += "2 : Tortue \n";
+    var choixEnnemi = parseInt(readline.question(texte));
+    if(choixEnnemi === 1) {
+        tableauEnnemis.push(templateEnnemi.creerCrabe());
+    } else if (choixEnnemi === 2) {
+        tableauEnnemis.push(templateEnnemi.creerTortue());
+    }
 }
 
 function afficherEnnemis() {

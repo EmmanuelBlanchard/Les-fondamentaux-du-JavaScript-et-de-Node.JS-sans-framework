@@ -2,7 +2,7 @@ var joueur = {
     nom : "Wawa",
     description : "Le meilleur des guerrier",
     level : 1,
-    pointsDeVie : 100,
+    pointsDeVie : 5,
     caractéristiques : {
         force : 5,
         agilite : 3,
@@ -19,7 +19,7 @@ var joueur = {
     },
     levelUp : function () {
         this.level ++;
-        this.pointsDeVie += 10;
+        this.pointsDeVie += 2;
         this.caractéristiques.force += 2;
         this.caractéristiques.agilite ++;
     }

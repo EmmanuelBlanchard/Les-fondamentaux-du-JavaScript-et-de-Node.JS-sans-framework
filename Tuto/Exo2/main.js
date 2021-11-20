@@ -15,7 +15,8 @@ tableauEnnemis.push(crabe1, crabe2, tortue1, tortue2, tortue3);
 // ennemiAleatoire.afficherEnnemi();
 
 var choixMenu = 0;
-while (choixMenu !== 9) {
+var gameOver = false;
+while (choixMenu !== 9 && !gameOver) {
     afficherMenu();
     var choixMenu = parseInt(readline.question("Quel est votre choix ? "));
 
@@ -48,15 +49,35 @@ function afficherEnnemis() {
     }
 }
 
-function combattreEnnemi() {
-    var ennemiAleatoire = retournerEnnemiAleatoire();
-    ennemiAleatoire.afficherEnnemi();
-}
-
 function retournerEnnemiAleatoire() {
     var numeroEnnemiAleatoire = Math.floor(Math.random() * tableauEnnemis.length);
     return tableauEnnemis[numeroEnnemiAleatoire];
 }
+
+function combattreEnnemi() {
+    var ennemiAleatoire = retournerEnnemiAleatoire();
+    ennemiAleatoire.afficherEnnemi();
+
+    joueur.pointsDeVie -= ennemiAleatoire.force;
+    ennemiAleatoire.pointsDeVie -= joueur.caractéristiques.force;
+
+    if(ennemiAleatoire.pointsDeVie <= 0) {
+        console.log("L'ennemi est mort");
+        joueur.levelUp();
+    }
+    if(joueur.pointsDeVie <= 0) {
+        console.log("Tu es mort");
+        gameOver = true;
+    }
+}
+
+function detruireEnnemi(numéro) {
+    for(var i =numéro; i < tableauEnnemis.length; i++) {
+        tableauEnnemis[i] = tableauEnnemis[i+1];
+    }
+    tableauEnnemis.pop();
+}
+
 
 // afficherInformationsJoueur(joueur);
 

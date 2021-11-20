@@ -79,10 +79,6 @@ function saisirChaineQuestion(question) {
     return readline.question(question);
 }
 
-function saisirBooleenQuestion(question) {
-    return parseBool(readline.question(question));
-}
-
 function afficherLesJoueursDuJeu() {    
     for(var i = 0 ; i <= tableauJoueurs.length - 1 ; i++) {
         afficherLigneSeparation(SEPARATEUR);

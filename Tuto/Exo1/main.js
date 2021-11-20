@@ -5,25 +5,25 @@ var readline = require("readline-sync");
 
 var joueur1 = {
     nom : "Toto",
-    age : 22,
+    age : 25,
     estunHomme : true
 }
 
 var joueur2 = {
     nom : "Tata",
-    age : 32,
+    age : 50,
     estunHomme : false
 }
 
 var joueur3 = {
     nom : "Koko",
-    age : 30,
+    age : 20,
     estunHomme : false
 }
 
 var joueur4 = {
     nom : "Papi",
-    age : 46,
+    age : 40,
     estunHomme : true
 }
 
@@ -46,7 +46,7 @@ while (choixMenu !== 9) {
         break;
         case 2: afficherLeJoueurLePlusAge();
         break;
-        case 3: afficherDifferenceAgeJoueurs(tableauJoueurs[0],tableauJoueurs[2]);
+        case 3: afficherMoyenneDageDesJoueurs();
         break;
         case 9: console.log("A bientôt");
         break;
@@ -63,7 +63,7 @@ function afficherMenu() {
     var texteMenu = "";
     texteMenu += "1 - Afficher les joueurs\n";
     texteMenu += "2 - Afficher le joueur le plus age\n";
-    texteMenu += "3 - Calculer la différence d'age\n";
+    texteMenu += "3 - Calculer la moyenne d'age des joueurs\n";
     texteMenu += "9 - Quitter\n";
     console.log(texteMenu);
 }
@@ -93,6 +93,17 @@ function afficherLeJoueurLePlusAge() {
     }
     afficherLigneSeparation(SEPARATEUR);
     console.log("Le joueur le plus age est : " + JoueurLePlusAge.nom);
+    afficherLigneSeparation(SEPARATEUR);
+}
+
+function afficherMoyenneDageDesJoueurs() {
+    var additionDesAges = 0; 
+    for(var i = 0 ; i < tableauJoueurs.length ; i++) {
+        additionDesAges += tableauJoueurs[i].age;
+    }
+    var moyenne = additionDesAges / tableauJoueurs.length;
+    afficherLigneSeparation(SEPARATEUR);
+    console.log("La moyenne d'age des joueurs est de : " + moyenne + " ans");
     afficherLigneSeparation(SEPARATEUR);
 }
 

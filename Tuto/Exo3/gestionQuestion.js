@@ -1,4 +1,4 @@
-var readline = require("readline-sync");
+var boiteOutils = require("./boiteOutils");
 
 var questionnaire = {
     afficherUneQuestion : function(question) {
@@ -18,11 +18,11 @@ var questionnaire = {
         return nombreDeQuestion;
     },
     genererQuestionAleatoire(questionnaire) {
-        var numeroQuestionAleatoire = Math.floor(Math.random() * this.retourneNombreQuestionsDuQuestionnaire(questionnaire) +1);
+        var numeroQuestionAleatoire = boiteOutils.genererChiffreAleatoire(1,this.retourneNombreQuestionsDuQuestionnaire(questionnaire));
         return questionnaire["question"+numeroQuestionAleatoire];
     },
     saisirReponse() {
-        return readline.question("Quelle est votre reponse (A - B - C - D) ? ");
+        return boiteOutils.saisirUneChaine("Quelle est votre reponse (A - B - C - D) ? ");
     },
     estBonneReponse(question, reponse) {
         if(reponse === question.bonneReponse) {

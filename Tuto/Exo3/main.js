@@ -1,3 +1,4 @@
+var boiteOutils = require("./boiteOutils");
 var questionnaire = selectionQuestionnaire();
 var gestionQuestion =  require("./gestionQuestion");
 
@@ -16,7 +17,7 @@ while(!isGameOver) {
 }
 
 function selectionQuestionnaire() {
-    var numeroQuestionnaire = Math.floor(Math.random() * 2 +1);
+    var numeroQuestionnaire = boiteOutils.genererChiffreAleatoire(1,3);
     if(numeroQuestionnaire === 1) {
         return require("./questionnaireChien.json");
     } else if (numeroQuestionnaire === 2) {

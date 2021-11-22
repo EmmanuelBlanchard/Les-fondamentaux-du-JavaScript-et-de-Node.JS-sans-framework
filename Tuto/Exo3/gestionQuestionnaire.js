@@ -12,6 +12,5 @@ var questionnaire = {
         console.log(texte);
     }
 }
-questionnaire.afficherQuestionnaire();
 
 module.exports = questionnaire;

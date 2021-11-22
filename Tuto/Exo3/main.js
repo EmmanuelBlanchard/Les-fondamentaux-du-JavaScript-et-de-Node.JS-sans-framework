@@ -18,10 +18,13 @@ while(!isGameOver) {
 }
 
 function selectionQuestionnaire() {
-    var numeroQuestionnaire = boiteOutils.genererChiffreAleatoire(1,3);
-    if(numeroQuestionnaire === 1) {
-        return require("./questionnaires/questionnaireChien.json");
-    } else if (numeroQuestionnaire === 2) {
-        return require("./questionnaires/questionnaireChat.json");
-    }
+    gestionQuestionnaire.afficherQuestionnaire();
+    var choixQuestionnaire = boiteOutils.saisirUneChaine("Quel est votre choix ?");
+    return require("./questionnaires/"+ gestionQuestionnaire[choixQuestionnaire]);
+    // var numeroQuestionnaire = boiteOutils.genererChiffreAleatoire(1,3);
+    // if(numeroQuestionnaire === 1) {
+    //     return require("./questionnaires/questionnaireChien.json");
+    // } else if (numeroQuestionnaire === 2) {
+    //     return require("./questionnaires/questionnaireChat.json");
+    // }
 }

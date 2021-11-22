@@ -1,3 +1,7 @@
-.monTitre1 {
-    color: Orchid;
+.taille100 {
+    width: 100px;
+}
+
+.taille300 {
+    width: 300px;
 }

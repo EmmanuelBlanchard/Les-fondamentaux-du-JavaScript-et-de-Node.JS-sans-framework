@@ -6,6 +6,10 @@ var joueur =  require("./joueur");
 
 var isGameOver = false;
 
+var nomDuJoueur = boiteOutils.saisirUneChaine("Quel est votre nom ? ");
+
+joueur.initialiserJoueur(nomDuJoueur);
+
 joueur.afficherJoueur();
 
 while(!isGameOver) {

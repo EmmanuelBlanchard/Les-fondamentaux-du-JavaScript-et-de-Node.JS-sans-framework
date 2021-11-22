@@ -5,3 +5,11 @@
 .taille300 {
     width: 300px;
 }
+
+.floatLeft {
+    float: left;
+}
+
+.clearBoth {
+    clear: both;
+}

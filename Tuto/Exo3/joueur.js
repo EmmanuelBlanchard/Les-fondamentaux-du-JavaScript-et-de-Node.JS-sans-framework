@@ -21,8 +21,8 @@ var joueur = {
         texte += "Score maximum : " + this.scoreMax + "\n";
         console.log(texte);
     },
-    gagnerPoint : function() {
-        this.score += 10;
+    gagnerPoints : function(points) {
+        this.score += points;
     },
     sauvegardeJoueur : function() {
         if(joueursJSON[this.nom] < this.score || joueursJSON[this.nom] === undefined) {

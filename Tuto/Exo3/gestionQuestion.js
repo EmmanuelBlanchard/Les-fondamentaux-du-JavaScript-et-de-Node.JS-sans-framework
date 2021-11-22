@@ -18,7 +18,7 @@ var questionnaire = {
         return nombreDeQuestion;
     },
     genererQuestionAleatoire(questionnaire) {
-        var numeroQuestionAleatoire = boiteOutils.genererChiffreAleatoire(1,this.retourneNombreQuestionsDuQuestionnaire(questionnaire));
+        var numeroQuestionAleatoire = boiteOutils.genererChiffreAleatoire(1,this.retourneNombreQuestionsDuQuestionnaire(questionnaire)+1);
         return questionnaire["question"+numeroQuestionAleatoire];
     },
     saisirReponse() {
@@ -29,6 +29,15 @@ var questionnaire = {
             return true;
         } else {
             return false;
+        }
+    },
+    retourneNombrePoints(question) {
+        if(question.difficulte === "facile") {
+            return 1;
+        } else if (question.difficulte === "moyenne") {
+            return 3;
+        } else {
+            return 5;
         }
     }
 }

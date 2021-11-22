@@ -3,6 +3,7 @@ var gestionQuestionnaire = require("./gestionQuestionnaire");
 var questionnaire = selectionQuestionnaire();
 var gestionQuestion =  require("./gestionQuestion");
 var joueur =  require("./joueur");
+const { retourneNombrePoints } = require("./gestionQuestion");
 
 var isGameOver = false;
 
@@ -18,7 +19,8 @@ while(!isGameOver) {
     var reponse = gestionQuestion.saisirReponse();
     var isBonneReponse = gestionQuestion.estBonneReponse(question,reponse);
     if(isBonneReponse) {
-        joueur.gagnerPoint();
+        var points = gestionQuestion.retourneNombrePoints(question);
+        joueur.gagnerPoints(points);
         joueur.afficherJoueur();
         console.log("C'est une bonne reponse");
     } else {

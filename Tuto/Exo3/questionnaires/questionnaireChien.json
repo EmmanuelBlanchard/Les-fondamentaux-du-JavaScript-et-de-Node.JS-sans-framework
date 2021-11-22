@@ -1,7 +1,7 @@
 {
     "question1" : {
         "difficulte" : "facile",
-        "desc" : "Combien de pates a un chien ? ",
+        "desc" : "Combien de pattes a un chien ? ",
         "reponseA" : 2,
         "reponseB" : 3,
         "reponseC" : 4,

@@ -26,6 +26,7 @@ while(!isGameOver) {
         isGameOver = true;
     }
 }
+joueur.sauvegardeJoueur();
 
 function selectionQuestionnaire() {
     gestionQuestionnaire.afficherQuestionnaire();

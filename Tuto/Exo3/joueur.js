@@ -1,3 +1,4 @@
+var fs = require("fs");
 var joueursJSON = require("./joueurs.json");
 
 var joueur = {
@@ -22,6 +23,12 @@ var joueur = {
     },
     gagnerPoint : function() {
         this.score += 10;
+    },
+    sauvegardeJoueur : function() {
+        if(joueursJSON[this.nom] < this.score || joueursJSON[this.nom] === undefined) {
+            joueursJSON[this.nom] = this.score;
+            fs.writeFileSync("joueurs.json", JSON.stringify(joueursJSON,undefined,4));
+        }
     }
 }
 module.exports = joueur;

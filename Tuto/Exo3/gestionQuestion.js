@@ -1,6 +1,8 @@
 var boiteOutils = require("./boiteOutils");
 
 var questionnaire = {
+    questionUtilise : [],
+
     afficherUneQuestion : function(question) {
         var texte = "";
         texte += question.desc + "\n";
@@ -18,8 +20,24 @@ var questionnaire = {
         return nombreDeQuestion;
     },
     genererQuestionAleatoire(questionnaire) {
-        var numeroQuestionAleatoire = boiteOutils.genererChiffreAleatoire(1,this.retourneNombreQuestionsDuQuestionnaire(questionnaire)+1);
+        var numeroQuestionAleatoire = 0;
+        do {
+            numeroQuestionAleatoire = boiteOutils.genererChiffreAleatoire(1,this.retourneNombreQuestionsDuQuestionnaire(questionnaire)+1);
+        } while(this.estQuestionUtiliser(numeroQuestionAleatoire));
+        this.questionUtilise.push(numeroQuestionAleatoire);
         return questionnaire["question"+numeroQuestionAleatoire];
+
+    },
+    estQuestionUtiliser : function (numeroQuestion) {
+        for(var i = 0 ; i < this.questionUtilise.length ; i++) {
+            if(numeroQuestion === this.questionUtilise[i]) {
+                return true;
+            }
+        }
+        return false;
+    },
+    verifierQuestionnaireVide : function(questionnaire) {
+        return this.questionUtilise.length === this.retourneNombreQuestionsDuQuestionnaire(questionnaire);
     },
     saisirReponse() {
         return boiteOutils.saisirUneChaine("Quelle est votre reponse (A - B - C - D) ? ");

@@ -3,7 +3,6 @@ var gestionQuestionnaire = require("./gestionQuestionnaire");
 var questionnaire = selectionQuestionnaire();
 var gestionQuestion =  require("./gestionQuestion");
 var joueur =  require("./joueur");
-const { retourneNombrePoints } = require("./gestionQuestion");
 
 var isGameOver = false;
 
@@ -23,6 +22,10 @@ while(!isGameOver) {
         joueur.gagnerPoints(points);
         joueur.afficherJoueur();
         console.log("C'est une bonne reponse");
+        if(gestionQuestion.verifierQuestionnaireVide(questionnaire)) {
+            isGameOver = true;
+            console.log("Vous avez gagné");
+        }
     } else {
         console.log("C'est une mauvaise reponse - vous avez perdu - Votre score final est de : " + joueur.score + " points");
         isGameOver = true;

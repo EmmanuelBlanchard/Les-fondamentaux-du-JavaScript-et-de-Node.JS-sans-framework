@@ -1,6 +1,10 @@
 // var boiteOutils = require("./boiteOutils");
 // var fruitsTemplate = require("./fruits");
 
+var finOrange = false;
+var finClementine = false;
+var finFraise = false;
+
 var panier = genererPanierAleatoire();
 affichageListe();
 
@@ -81,6 +85,8 @@ function verifierResultatOrange() {
     var prixTotalMachine = calculPrixPanierFruits(panier.oranges);
     if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
         sectionResultat.innerHTML = "<img src=\"images/check.gif\" width=\"30\">";
+        finOrange = true;
+        finDuJeu();
     } else {
         sectionResultat.innerHTML = "<img src=\"images/croix.png\" width=\"30\">";
     }
@@ -97,6 +103,8 @@ function verifierResultatClementine() {
     var prixTotalMachine = calculPrixPanierFruits(panier.clementines);
     if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
         sectionResultat.innerHTML = "<img src=\"images/check.gif\" width=\"30\">";
+        finClementine = true;
+        finDuJeu();
     } else {
         sectionResultat.innerHTML = "<img src=\"images/croix.png\" width=\"30\">";
     }
@@ -113,6 +121,8 @@ function verifierResultatFraise() {
     var prixTotalMachine = calculPrixPanierFruits(panier.fraises);
     if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
         sectionResultat.innerHTML = "<img src=\"images/check.gif\" width=\"30\">";
+        finFraise = true;
+        finDuJeu();
     } else {
         sectionResultat.innerHTML = "<img src=\"images/croix.png\" width=\"30\">";
     }
@@ -122,4 +132,40 @@ var imagePanier = document.querySelector(".panier");
 imagePanier.addEventListener("click", function() {
     panier = genererPanierAleatoire();
     affichageListe();
+    finOrange = false;
+    finClementine = false;
+    finFraise = false;
+    reinitialisationPageHtml();
 });
+
+function finDuJeu() {
+    if(finOrange && finClementine && finFraise) {
+        var finSection = document.querySelector(".fin");
+        finSection.innerHTML = "Fin du jeu";
+    }
+}
+
+function reinitialisationPageHtml() {
+    var poidsOrange = document.querySelector("#poidsOrange");
+    var poidsClementine = document.querySelector("#poidsClementine");
+    var poidsFraise = document.querySelector("#poidsFraise");
+    var prixOrange = document.querySelector("#prixOrange");
+    var prixClementine = document.querySelector("#prixClementine");
+    var prixFraise = document.querySelector("#prixFraise");
+
+    var sectionResultatOrange = document.querySelector(".orangeResultat");
+    var sectionResultatClementine = document.querySelector(".clementineResultat");
+    var sectionResultatFraise = document.querySelector(".fraiseResultat");
+    var finSectionReinitilisation = document.querySelector(".fin");
+    
+    poidsOrange.value = "";
+    poidsClementine.value = "";
+    poidsFraise.value = "";
+    prixOrange.value = "";
+    prixClementine.value = "";
+    prixFraise.value = "";
+    sectionResultatOrange.innerHTML = "";
+    sectionResultatClementine.innerHTML = "";
+    sectionResultatFraise.innerHTML = "";
+    finSectionReinitilisation.innerHTML = "";
+}

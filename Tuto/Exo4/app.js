@@ -1,3 +1,8 @@
+var fruitsTemplate = require("./fruits");
+
+var clementine = fruitsTemplate.creerClementine();
+console.log(clementine);
+
 function verifierResultatOrange() {
     var poids = document.querySelector("#poidsOrange");
     var poidsValeur = poids.value;

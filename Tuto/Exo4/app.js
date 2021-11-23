@@ -2,7 +2,7 @@
 // var fruitsTemplate = require("./fruits");
 
 var panier = genererPanierAleatoire();
-console.log(panier);
+affichageListe();
 
 function genererPanierAleatoire() {
     var panier = {
@@ -25,19 +25,33 @@ function genererPanierAleatoire() {
     return panier;
 }
 
-genererListeOranges();
+function affichageListe() {
+    genererListeOranges();
+    genererListeClementines();
+    genererListeFraises();
+}
 
 function genererListeOranges() {
     var orangesHtml = document.querySelector(".orange ul");
-    orangesHtml.innerHTML = "<li>1 - Orange 1</li>";
+    orangesHtml.innerHTML = genererListe(panier.oranges);
 }
 
 function genererListeClementines() {
-    
+    var clementinesHtml = document.querySelector(".clementine ul");
+    clementinesHtml.innerHTML = genererListe(panier.clementines);
 }
 
 function genererListeFraises() {
-    
+    var fraisesHtml = document.querySelector(".fraise ul");
+    fraisesHtml.innerHTML = genererListe(panier.fraises);
+}
+
+function genererListe(fruits) {
+    var listHtml = "";
+    for(var i = 0 ; i  < fruits.length ; i++) {
+        listHtml += "<li>"+ (i+1) + " - Poids  : " + (fruits[i].poids) + " - Prix : " + fruits[i].prix + " </li>";
+    }
+    return listHtml;
 }
 
 function verifierResultatOrange() {

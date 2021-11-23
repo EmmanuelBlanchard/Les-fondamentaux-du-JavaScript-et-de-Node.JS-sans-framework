@@ -7,27 +7,36 @@ var serveur = http.createServer(traiteReq);
 serveur.listen(PORT);
 
 function traiteReq(requete, reponse) {
-    var pageHtml = "";
+    var dataAEnvoyer = "";
     var contentType = "";
+    var dossier = "";
     var monObjUrl = url.parse(requete.url);
-    
-    console.log(monObjUrl.pathname);
+    var indexDuPoint = monObjUrl.pathname.indexOf(".");
+    var extension = monObjUrl.pathname.substring(indexDuPoint, monObjUrl.pathname.length);
 
-    if(monObjUrl.pathname === "/index.html" || monObjUrl.pathname === "/") {
-        pageHtml = fs.readFileSync("./index.html","UTF-8");
-        contentType = "text/html";
-    } else if(monObjUrl.pathname === "/toto.html") {
-        pageHtml = fs.readFileSync("./toto.html","UTF-8");
-        contentType = "text/html";
-    } else if(monObjUrl.pathname === "/css.css") {
-        pageHtml = fs.readFileSync("./css.css");
-        contentType = "text/css";
-    } else if(monObjUrl.pathname === "/panier.jpg") {
-        pageHtml = fs.readFileSync("./images/panier.jpg");
-        contentType = "image/jpg";
+    
+    switch(extension) {
+        case ".html" : 
+            contentType = "text/html";
+            dossier = "html/";
+        break;
+        case ".css" : 
+            contentType = "text/css";
+            dossier = "css/";
+        break;
+        case ".jpg" : 
+            contentType = "image/jpeg";
+            dossier = "images/";
+        break;
+        default : contentType = "";
+        break;
+    }
+
+    if(monObjUrl.pathname !== "/favicon.ico") {
+        dataAEnvoyer = fs.readFileSync(dossier+monObjUrl.pathname.substring(1,monObjUrl.pathname.length));
     }
 
     reponse.writeHead(200,{'Content-Type' : contentType});
-    reponse.write(pageHtml);
+    reponse.write(dataAEnvoyer);
     reponse.end();
 }

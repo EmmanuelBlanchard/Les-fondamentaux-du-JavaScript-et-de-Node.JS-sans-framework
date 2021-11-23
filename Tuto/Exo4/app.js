@@ -75,14 +75,14 @@ function verifierResultatOrange() {
     var poidsValeur = poids.value;
     var prix = document.querySelector("#prixOrange");
     var prixValeur = prix.value;
+    var sectionResultat = document.querySelector(".orangeResultat");
 
     var poidsTotalMachine = calculPoidsPanierFruits(panier.oranges);
     var prixTotalMachine = calculPrixPanierFruits(panier.oranges);
-
     if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
-        console.log("Les resultats sont ok");
+        sectionResultat.innerHTML = "<img src=\"images/check.gif\" width=\"30\">";
     } else {
-        console.log("Les resultats sont faux");
+        sectionResultat.innerHTML = "<img src=\"images/croix.png\" width=\"30\">";
     }
 }
 
@@ -91,14 +91,14 @@ function verifierResultatClementine() {
     var poidsValeur = poids.value;
     var prix = document.querySelector("#prixClementine");
     var prixValeur = prix.value;
-    
+    var sectionResultat = document.querySelector(".clementineResultat");
+
     var poidsTotalMachine = calculPoidsPanierFruits(panier.clementines);
     var prixTotalMachine = calculPrixPanierFruits(panier.clementines);
-
     if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
-        console.log("Les resultats sont ok");
+        sectionResultat.innerHTML = "<img src=\"images/check.gif\" width=\"30\">";
     } else {
-        console.log("Les resultats sont faux");
+        sectionResultat.innerHTML = "<img src=\"images/croix.png\" width=\"30\">";
     }
 }
 
@@ -107,14 +107,14 @@ function verifierResultatFraise() {
     var poidsValeur = poids.value;
     var prix = document.querySelector("#prixFraise");
     var prixValeur = prix.value;
+    var sectionResultat = document.querySelector(".fraiseResultat");
 
     var poidsTotalMachine = calculPoidsPanierFruits(panier.fraises);
     var prixTotalMachine = calculPrixPanierFruits(panier.fraises);
-
     if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
-        console.log("Les resultats sont ok");
+        sectionResultat.innerHTML = "<img src=\"images/check.gif\" width=\"30\">";
     } else {
-        console.log("Les resultats sont faux");
+        sectionResultat.innerHTML = "<img src=\"images/croix.png\" width=\"30\">";
     }
 }
 

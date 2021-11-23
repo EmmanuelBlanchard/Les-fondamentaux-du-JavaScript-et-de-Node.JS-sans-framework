@@ -1,4 +1,4 @@
-var boiteOutils = require("./boiteOutils");
+// var boiteOutils = require("./boiteOutils");
 
 var fruitsTemplate = { 
     creerOrange : function() {
@@ -26,4 +26,4 @@ var fruitsTemplate = {
         return fraise;
     }
 }
-module.exports = fruitsTemplate;
+// module.exports = fruitsTemplate;

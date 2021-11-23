@@ -1,5 +1,5 @@
-var boiteOutils = require("./boiteOutils");
-var fruitsTemplate = require("./fruits");
+// var boiteOutils = require("./boiteOutils");
+// var fruitsTemplate = require("./fruits");
 
 var panier = genererPanierAleatoire();
 console.log(panier);
@@ -25,6 +25,20 @@ function genererPanierAleatoire() {
     return panier;
 }
 
+genererListeOranges();
+
+function genererListeOranges() {
+    var orangesHtml = document.querySelector(".orange ul");
+    orangesHtml.innerHTML = "<li>1 - Orange 1</li>";
+}
+
+function genererListeClementines() {
+    
+}
+
+function genererListeFraises() {
+    
+}
 
 function verifierResultatOrange() {
     var poids = document.querySelector("#poidsOrange");

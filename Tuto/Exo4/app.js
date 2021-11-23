@@ -25,6 +25,22 @@ function genererPanierAleatoire() {
     return panier;
 }
 
+function calculPoidsPanierFruits(fruits) {
+    var calcul = 0;
+    for(var i = 0 ; i < fruits.length ; i++) {
+        calcul += fruits[i].poids; 
+    }
+    return calcul;
+}
+
+function calculPrixPanierFruits(fruits) {
+    var calcul = 0;
+    for(var i = 0 ; i < fruits.length ; i++) {
+        calcul += fruits[i].prix; 
+    }
+    return calcul;
+}
+
 function affichageListe() {
     genererListeOranges();
     genererListeClementines();
@@ -59,7 +75,15 @@ function verifierResultatOrange() {
     var poidsValeur = poids.value;
     var prix = document.querySelector("#prixOrange");
     var prixValeur = prix.value;
-    console.log(poidsValeur, prixValeur);
+
+    var poidsTotalMachine = calculPoidsPanierFruits(panier.oranges);
+    var prixTotalMachine = calculPrixPanierFruits(panier.oranges);
+
+    if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
+        console.log("Les resultats sont ok");
+    } else {
+        console.log("Les resultats sont faux");
+    }
 }
 
 function verifierResultatClementine() {
@@ -67,7 +91,15 @@ function verifierResultatClementine() {
     var poidsValeur = poids.value;
     var prix = document.querySelector("#prixClementine");
     var prixValeur = prix.value;
-    console.log(poidsValeur, prixValeur);
+    
+    var poidsTotalMachine = calculPoidsPanierFruits(panier.clementines);
+    var prixTotalMachine = calculPrixPanierFruits(panier.clementines);
+
+    if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
+        console.log("Les resultats sont ok");
+    } else {
+        console.log("Les resultats sont faux");
+    }
 }
 
 function verifierResultatFraise() {
@@ -75,7 +107,15 @@ function verifierResultatFraise() {
     var poidsValeur = poids.value;
     var prix = document.querySelector("#prixFraise");
     var prixValeur = prix.value;
-    console.log(poidsValeur, prixValeur);
+
+    var poidsTotalMachine = calculPoidsPanierFruits(panier.fraises);
+    var prixTotalMachine = calculPrixPanierFruits(panier.fraises);
+
+    if(poidsTotalMachine ===  parseInt(poidsValeur) && prixTotalMachine ===  parseInt(prixValeur)) {
+        console.log("Les resultats sont ok");
+    } else {
+        console.log("Les resultats sont faux");
+    }
 }
 
 var imagePanier = document.querySelector(".panier");

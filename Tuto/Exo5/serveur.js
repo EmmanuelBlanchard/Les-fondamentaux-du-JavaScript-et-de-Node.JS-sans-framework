@@ -14,7 +14,10 @@ function traiteReq(requete, reponse) {
     var dossier = "";
     var monObjUrl = url.parse(requete.url);
     var monObjQuery = queryString.parse(monObjUrl.query);
-    console.log(monObjQuery);
+
+    if(monObjUrl.pathname === "/") {
+        monObjUrl.pathname = "/index.html";
+    }
     var indexDuPoint = monObjUrl.pathname.indexOf(".");
     var extension = monObjUrl.pathname.substring(indexDuPoint, monObjUrl.pathname.length);
 
@@ -39,8 +42,13 @@ function traiteReq(requete, reponse) {
     }
 
     if(monObjUrl.pathname !== "/favicon.ico") {
-        dataAEnvoyer = fs.readFileSync(dossier+monObjUrl.pathname.substring(1,monObjUrl.pathname.length),encodage);
-        if(monObjUrl.pathname === "/toto.html") {
+        try {
+            dataAEnvoyer = fs.readFileSync(dossier+monObjUrl.pathname.substring(1,monObjUrl.pathname.length),encodage);
+        } catch (error) {
+            console.log("ici"+error);
+        }
+        
+        if(extension === ".html") {
             dataAEnvoyer = dataAEnvoyer.supplant(monObjQuery);
         }
     }

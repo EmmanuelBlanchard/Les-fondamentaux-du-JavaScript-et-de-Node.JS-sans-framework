@@ -77,3 +77,9 @@ function verifierResultatFraise() {
     var prixValeur = prix.value;
     console.log(poidsValeur, prixValeur);
 }
+
+var imagePanier = document.querySelector(".panier");
+imagePanier.addEventListener("click", function() {
+    panier = genererPanierAleatoire();
+    affichageListe();
+});

@@ -15,3 +15,8 @@
 .clearBoth {
     clear: both;
 }
+
+.panier:hover {
+    width: 320px;
+    cursor: pointer;
+}

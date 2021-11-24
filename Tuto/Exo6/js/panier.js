@@ -57,7 +57,6 @@ var panier = {
     verifierResultat : function(poids,prix,fruits) {
         var poidsCalculMachine = this.calculPoidsPanierFruits(fruits);
         var prixCalculMachine = this.calculPrixPanierFruits(fruits);
-        
         if(poidsCalculMachine === parseInt(poids) && prixCalculMachine === parseInt(prix)) {
             return true;
         } else {

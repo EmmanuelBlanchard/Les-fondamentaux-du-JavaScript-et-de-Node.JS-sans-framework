@@ -5,10 +5,7 @@ var gestionPage = {
             dataAEnvoyer : "",
             contentType : "",
         };
-    
-        var dossier = "";
-        var encodage = "";
-    
+            
         var preparationData = this.gestionExtension(monObjUrl);
         data.contentType = preparationData.contentType;
         

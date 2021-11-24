@@ -4,9 +4,6 @@ var queryString = require("querystring");
 var gestionPage = require("./gestionPage");
 var panier = require("./js/panier");
 var panierAleatoire = panier.genererPanierAleatoire();
-var orangesListe = panier.genererListe(panierAleatoire.oranges);
-var clementinesListe = panier.genererListe(panierAleatoire.clementines);
-var fraisesListe = panier.genererListe(panierAleatoire.fraises);
 
 require("remedial");
 const PORT = "8080";
@@ -16,12 +13,24 @@ serveur.listen(PORT);
 
 function traiteReq(requete, reponse) {
     var monObjUrl = url.parse(requete.url);
-    var monObjQuery = queryString.parse(monObjUrl.query);
+    
+    if(requete.method === "GET") { // Recuperation des données en GET
+        var monObjQuery = queryString.parse(monObjUrl.query);
+    } else if(requete.method === "POST") { // Recuperation des données en POST
+        let body = "";
+        requete.on('data', chunk => {
+            body += chunk.toString(); // convert Buffer to string
+        });
+        requete.on('end', () => {
+            // objToSupplant += queryString.parse(body);
+            console.log(queryString.parse(body));
+        });
+    }
 
     var objetToSupplant = {
-        listeOranges : orangesListe,
-        listeClementines : clementinesListe,
-        listeFraises : fraisesListe
+        listeOranges : panier.genererListe(panierAleatoire.oranges),
+        listeClementines : panier.genererListe(panierAleatoire.clementines),
+        listeFraises : panier.genererListe(panierAleatoire.fraises)
     }
 
     if(monObjUrl.pathname === "/") {

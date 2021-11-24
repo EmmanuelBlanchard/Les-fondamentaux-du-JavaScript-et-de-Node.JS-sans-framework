@@ -8,15 +8,17 @@
             {listeOranges}
         </ul>
         <div class="floatLeft">
-            <div>
-                <label for="poidsOrange">Poids total</label>
-                <input type="number" id="poidsOrange" name="poidsOrange">
-            </div>
-            <div>
-                <label for="prixOrange">Prix total</label>
-                <input type="number" id="prixOrange" name="prixOrange">
-            </div>
-            <button onclick="verifierResultatOrange()">Valider</button>
+            <form action="#" method="POST">
+                <div>
+                    <label for="poidsOrange">Poids total</label>
+                    <input type="number" id="poidsOrange" name="poidsOrange">
+                </div>
+                <div>
+                    <label for="prixOrange">Prix total</label>
+                    <input type="number" id="prixOrange" name="prixOrange">
+                </div>
+                <input type="submit" value="Valider">
+            </form>
         </div>
         <div class="floatLeft orangeResultat"></div>
     </div>

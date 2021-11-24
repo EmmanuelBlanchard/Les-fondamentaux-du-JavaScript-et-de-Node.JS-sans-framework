@@ -1,0 +1,22 @@
+.taille100 {
+    width: 100px;
+}
+.taille200 {
+    width: 200px;
+}
+.taille300 {
+    width: 300px;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.clearBoth {
+    clear: both;
+}
+
+.panier:hover {
+    width: 320px;
+    cursor: pointer;
+}

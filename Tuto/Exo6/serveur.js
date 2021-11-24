@@ -34,27 +34,34 @@ function traiteReq(requete, reponse) {
             // objToSupplant += queryString.parse(body);
             var objetPoste = queryString.parse(body);
             if(objetPoste.poidsOrange !== undefined) {
-                var resultat = panier.verifierResultat(objetPoste.poidsOrange,objetPoste.prixOrange,panierAleatoire.oranges);
-                if(resultat) {
-                    objetToSupplant.orangesResulat = "<img src=\"check.gif\" width=\"30\">";
-                } else {
-                    objetToSupplant.orangesResulat = "<img src=\"croix.png\" width=\"30\">";
-                }
-            } else if(objetPoste.poidsClementine) {
-                var resultat = panier.verifierResultat(objetPoste.poidsClementine,objetPoste.prixClementine,panierAleatoire.clementines);
-                if(resultat) {
-                    objetToSupplant.clementinesResultat = "<img src=\"check.gif\" width=\"30\">";
-                } else {
-                    objetToSupplant.clementinesResultat = "<img src=\"croix.png\" width=\"30\">";
-                }
-            } else if(objetPoste.poidsFraise) {
-                var resultat = panier.verifierResultat(objetPoste.poidsFraise,objetPoste.prixFraise,panierAleatoire.fraises);
-                if(resultat) {
-                    objetToSupplant.fraiseResultat = "<img src=\"check.gif\" width=\"30\">";
-                } else {
-                    objetToSupplant.fraiseResultat = "<img src=\"croix.png\" width=\"30\">";
-                }
+                orangeResultatBool = panier.verifierResultat(objetPoste.poidsOrange,objetPoste.prixOrange,panierAleatoire.oranges);
             }
+            if(objetPoste.poidsClementine) {
+                clementineResultatBool = panier.verifierResultat(objetPoste.poidsClementine,objetPoste.prixClementine,panierAleatoire.clementines);
+            }
+            if(objetPoste.poidsFraise) {
+                fraiseResultatBool = panier.verifierResultat(objetPoste.poidsFraise,objetPoste.prixFraise,panierAleatoire.fraises);
+            }
+
+            if(orangeResultatBool) {
+                objetToSupplant.orangesResulat = "<img src=\"check.gif\" width=\"30\">";
+            } else {
+                objetToSupplant.orangesResulat = "<img src=\"croix.png\" width=\"30\">";
+            }
+
+            if(clementineResultatBool) {
+                objetToSupplant.clementinesResultat = "<img src=\"check.gif\" width=\"30\">";
+            } else {
+                objetToSupplant.clementinesResultat = "<img src=\"croix.png\" width=\"30\">";
+            }
+
+            if(fraiseResultatBool) {
+                objetToSupplant.fraisesResultat = "<img src=\"check.gif\" width=\"30\">";
+            } else {
+                objetToSupplant.fraisesResultat = "<img src=\"croix.png\" width=\"30\">";
+            }
+
+
             var data = gestionPage.preparerLesDonnees(monObjUrl, objetToSupplant);
             gestionPage.envoyerLesDonnees(data, reponse);
         });

@@ -4,4 +4,4 @@ var boiteOutils = {
     }
 }
 
-// module.exports = boiteOutils;
+module.exports = boiteOutils;

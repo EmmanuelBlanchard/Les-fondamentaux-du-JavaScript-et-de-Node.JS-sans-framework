@@ -2,6 +2,10 @@ var http = require("http");
 var url = require("url");
 var queryString = require("querystring");
 var gestionPage = require("./gestionPage");
+var application = require("./js/app");
+var panier = application.genererPanierAleatoire();
+console.log(panier);
+
 require("remedial");
 const PORT = "8080";
 

@@ -15,7 +15,12 @@ var gestionPage = {
         if(monObjUrl.pathname !== "/favicon.ico") {
             try {
                 data.dataAEnvoyer = fs.readFileSync(preparationData.dossier+monObjUrl.pathname.substring(1,monObjUrl.pathname.length),preparationData.encodage);
-                if(preparationData.extension === ".html") {
+
+                if(preparationData.extension === ".html"){
+                    var header = fs.readFileSync("./html/Common/header.html");
+                    var footer = fs.readFileSync("./html/Common/footer.html");
+                    
+                    data.dataAEnvoyer = header + data.dataAEnvoyer + footer;
                     data.dataAEnvoyer = data.dataAEnvoyer.supplant(monObjQuery);
                 }
             } catch (error) {

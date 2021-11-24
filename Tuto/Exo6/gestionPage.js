@@ -5,7 +5,7 @@ var gestionPage = {
             dataAEnvoyer : "",
             contentType : "",
         };
-            
+
         var preparationData = this.gestionExtension(monObjUrl);
         data.contentType = preparationData.contentType;
         
@@ -62,7 +62,7 @@ var gestionPage = {
             break;
             case ".js" : 
                 preparationData.contentType = "application/javascript";
-                preparationData.dossier = "js/";
+                preparationData.dossier = "js_client/";
             break;
             default : preparationData.contentType = "";
             break;

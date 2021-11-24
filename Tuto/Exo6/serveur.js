@@ -2,8 +2,11 @@ var http = require("http");
 var url = require("url");
 var queryString = require("querystring");
 var gestionPage = require("./gestionPage");
-var panier = require("./js/panier");
+var panier = require("./js_serveur/panier");
 var panierAleatoire = panier.genererPanierAleatoire();
+var orangeResultatBool = false;
+var clementineResultatBool = false;
+var fraiseResultatBool = false;
 
 require("remedial");
 const PORT = "8080";
@@ -14,18 +17,29 @@ serveur.listen(PORT);
 function traiteReq(requete, reponse) {
     var monObjUrl = url.parse(requete.url);
     
+    // Recuperation des données en GET
+    if(requete.method === 'GET'){
+        var monObjQuery = queryString.parse(monObjUrl.query);
+        if(monObjQuery.reload === "true") {
+            panierAleatoire = panier.genererPanierAleatoire();
+            orangeResultatBool = false;
+            clementineResultatBool = false;
+            fraiseResultatBool = false;
+        }
+    }
+
     var objetToSupplant = {
         listeOranges : panier.genererListe(panierAleatoire.oranges),
         listeClementines : panier.genererListe(panierAleatoire.clementines),
         listeFraises : panier.genererListe(panierAleatoire.fraises),
         orangesResulat : "",
         clementinesResultat : "",
-        fraisesResultat : ""
+        fraisesResultat : "",
+        finResultat : ""
     }
 
-    if(requete.method === "GET") { // Recuperation des données en GET
-        var monObjQuery = queryString.parse(monObjUrl.query);
-    } else if(requete.method === "POST") { // Recuperation des données en POST
+    // Recuperation des données en POST
+    if(requete.method === "POST") {
         let body = "";
         requete.on('data', chunk => {
             body += chunk.toString(); // convert Buffer to string
@@ -61,6 +75,9 @@ function traiteReq(requete, reponse) {
                 objetToSupplant.fraisesResultat = "<img src=\"croix.png\" width=\"30\">";
             }
 
+            if(orangeResultatBool && clementineResultatBool && fraiseResultatBool){
+                objetToSupplant.finResultat = "<h1>Vous avez gagné</h1>";
+            }
 
             var data = gestionPage.preparerLesDonnees(monObjUrl, objetToSupplant);
             gestionPage.envoyerLesDonnees(data, reponse);

@@ -29,15 +29,17 @@
             {listeClementines}
         </ul>
         <div class="floatLeft">
-            <div>
-                <label for="poidsClementine">Poids total</label>
-                <input type="number" id="poidsClementine" name="poidsClementine">
-            </div>
-            <div>
-                <label for="prixClementine">Prix total</label>
-                <input type="number" id="prixClementine" name="prixClementine">
-            </div>
-            <button onclick="verifierResultatClementine()">Valider</button>
+            <form action="#" method="POST">
+                <div>
+                    <label for="poidsClementine">Poids total</label>
+                    <input type="number" id="poidsClementine" name="poidsClementine">
+                </div>
+                <div>
+                    <label for="prixClementine">Prix total</label>
+                    <input type="number" id="prixClementine" name="prixClementine">
+                </div>
+                <input type="submit" value="Valider">
+            </form>
         </div>
         <div class="floatLeft clementineResultat"></div>
     </div>
@@ -48,15 +50,17 @@
             {listeFraises}
         </ul>
         <div class="floatLeft">
-            <div>
-                <label for="poidsFraise">Poids total</label>
-                <input type="number" id="poidsFraise" name="poidsFraise">
-            </div>
-            <div>
-                <label for="prixFraise">Prix total</label>
-                <input type="number" id="prixFraise" name="prixFraise">
-            </div>
-            <button onclick="verifierResultatFraise()">Valider</button>
+            <form action="#" method="POST">
+                <div>
+                    <label for="poidsFraise">Poids total</label>
+                    <input type="number" id="poidsFraise" name="poidsFraise">
+                </div>
+                <div>
+                    <label for="prixFraise">Prix total</label>
+                    <input type="number" id="prixFraise" name="prixFraise">
+                </div>
+                <input type="submit" value="Valider">
+            </form>
         </div>
         <div class="floatLeft fraiseResultat"></div>
     </div>

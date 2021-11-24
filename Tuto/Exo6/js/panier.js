@@ -9,7 +9,6 @@ var finFraise = false;
 // affichageListe();
 
 var panier = {
-
     genererPanierAleatoire : function() {
         var panier = {
             oranges : [],
@@ -53,6 +52,17 @@ var panier = {
             listHtml += "<li>"+ (i+1) + " - Poids  : " + (fruits[i].poids) + " - Prix : " + fruits[i].prix + " </li>";
         }
         return listHtml;
+    },
+
+    verifierResultat : function(poids,prix,fruits) {
+        var poidsCalculMachine = this.calculPoidsPanierFruits(fruits);
+        var prixCalculMachine = this.calculPrixPanierFruits(fruits);
+        
+        if(poidsCalculMachine === parseInt(poids) && prixCalculMachine === parseInt(prix)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 module.exports = panier;

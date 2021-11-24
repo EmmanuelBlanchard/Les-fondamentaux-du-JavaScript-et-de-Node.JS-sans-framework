@@ -23,7 +23,32 @@ function traiteReq(requete, reponse) {
         });
         requete.on('end', () => {
             // objToSupplant += queryString.parse(body);
-            console.log(queryString.parse(body));
+            var objetPoste = queryString.parse(body);
+            if(objetPoste.poidsOrange !== undefined) {
+                var resultat = panier.verifierResultat(objetPoste.poidsOrange,objetPoste.prixOrange,panierAleatoire.oranges);
+                if(resultat) {
+                    console.log("Le resultat est bon");
+                } else {
+                    console.log("Le resultat est faux");
+                }
+            } else if(objetPoste.poidsClementine) {
+                var resultat = panier.verifierResultat(objetPoste.poidsClementine,objetPoste.prixClementine,panierAleatoire.clementines);
+                if(resultat) {
+                    console.log("Le resultat est bon");
+                } else {
+                    console.log("Le resultat est faux");
+                }
+            } else if(objetPoste.poidsFraise) {
+                var resultat = panier.verifierResultat(objetPoste.poidsFraise,objetPoste.prixFraise,panierAleatoire.fraises);
+                if(resultat) {
+                    console.log("Le resultat est bon");
+                } else {
+                    console.log("Le resultat est faux");
+                }
+            } else {
+                console.log("Pas les oranges, les clementines, les fraises");
+            }
+            console.log(objetPoste);
         });
     }
 

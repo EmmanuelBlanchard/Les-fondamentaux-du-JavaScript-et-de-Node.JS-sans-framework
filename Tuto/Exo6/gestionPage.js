@@ -1,6 +1,6 @@
 var fs = require("fs");
 var gestionPage = {
-    preparerLesDonnees : function(monObjUrl, monObjQuery) {
+    preparerLesDonnees : function(monObjUrl, objetToSupplant) {
         var data = {
             dataAEnvoyer : "",
             contentType : "",
@@ -21,7 +21,7 @@ var gestionPage = {
                     var footer = fs.readFileSync("./html/Common/footer.html");
                     
                     data.dataAEnvoyer = header + data.dataAEnvoyer + footer;
-                    data.dataAEnvoyer = data.dataAEnvoyer.supplant(monObjQuery);
+                    data.dataAEnvoyer = data.dataAEnvoyer.supplant(objetToSupplant);
                 }
             } catch (error) {
                 console.log(error);

@@ -8,7 +8,7 @@ var finFraise = false;
 // var panier = genererPanierAleatoire();
 // affichageListe();
 
-var application = {
+var panier = {
 
     genererPanierAleatoire : function() {
         var panier = {
@@ -46,8 +46,16 @@ var application = {
         }
         return calcul;
     },
+
+    genererListe : function(fruits) {
+        var listHtml = "";
+        for(var i = 0 ; i  < fruits.length ; i++) {
+            listHtml += "<li>"+ (i+1) + " - Poids  : " + (fruits[i].poids) + " - Prix : " + fruits[i].prix + " </li>";
+        }
+        return listHtml;
+    }
 }
-module.exports = application;
+module.exports = panier;
 
 // function affichageListe() {
 //     genererListeOranges();
@@ -70,13 +78,7 @@ module.exports = application;
 //     fraisesHtml.innerHTML = genererListe(panier.fraises);
 // }
 
-// function genererListe(fruits) {
-//     var listHtml = "";
-//     for(var i = 0 ; i  < fruits.length ; i++) {
-//         listHtml += "<li>"+ (i+1) + " - Poids  : " + (fruits[i].poids) + " - Prix : " + fruits[i].prix + " </li>";
-//     }
-//     return listHtml;
-// }
+
 
 // function verifierResultatOrange() {
 //     var poids = document.querySelector("#poidsOrange");
